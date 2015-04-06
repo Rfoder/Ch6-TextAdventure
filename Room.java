@@ -3,23 +3,25 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 /**
- * Class Room - a room in an adventure game.
+ * Class Room - a room in The NeverEnding Story.
  *
- * This class is part of the "World of Zuul" application. 
- * "World of Zuul" is a very simple, text based adventure game.  
+ * This class is part of "The NeverEnding Story" application. 
+ * "The NeverEnding" is a very adventurous game.  
  *
  * A "Room" represents one location in the scenery of the game.  It is 
  * connected to other rooms via exits.  For each existing exit, the room 
  * stores a reference to the neighboring room.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2011.08.10
+ * @author  Robert Foder
+ * @version 3/23/15
  */
 
 public class Room 
 {
     private String description;
-    private HashMap<String, Room> exits;        // stores exits of this room.
+    private HashMap<String, Room> exits;
+   
+    // stores exits of this room.
 
     /**
      * Create a room described "description". Initially, it has

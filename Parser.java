@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 /**
- * This class is part of the "World of Zuul" application. 
- * "World of Zuul" is a very simple, text based adventure game.  
+ * This class is part of the "The NverEnding Story" application. 
+ * "The NverEnding Story" is a very adventurous game.  
  * 
  * This parser reads user input and tries to interpret it as an "Adventure"
  * command. Every time it is called it reads a line from the terminal and
@@ -13,11 +13,12 @@ import java.util.Scanner;
  * the known commands, and if the input is not one of the known commands, it
  * returns a command object that is marked as an unknown command.
  * 
- * @author  Michael Kölling and David J. Barnes
- * @version 2011.08.10
+ * @author Robert Foder
+ * @version 3/23/15
  */
 public class Parser 
 {
+   
     private CommandWords commands;  // holds all valid command words
     private Scanner reader;         // source of command input
 
@@ -38,7 +39,8 @@ public class Parser
         String inputLine;   // will hold the full input line
         String word1 = null;
         String word2 = null;
-
+        String word3 = null;
+        String word4 = null;
         System.out.print("> ");     // print prompt
 
         inputLine = reader.nextLine();
@@ -48,12 +50,19 @@ public class Parser
         if(tokenizer.hasNext()) {
             word1 = tokenizer.next();      // get first word
             if(tokenizer.hasNext()) {
-                word2 = tokenizer.next();      // get second word
+                word2 = tokenizer.next();// get second word
+                    if(tokenizer.hasNext()){
+                        word3 = tokenizer.next();//gets third
+                        if(tokenizer.hasNext()){
+                        word4 = tokenizer.next();
                 // note: we just ignore the rest of the input line.
             }
         }
+    }
+}
 
-        return new Command(commands.getCommandWord(word1), word2);
+        return new Command(commands.getCommandWord(word1), word2, word3);
+       
     }
 
     /**
@@ -64,3 +73,4 @@ public class Parser
         commands.showAll();
     }
 }
+
